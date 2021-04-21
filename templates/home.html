@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Portal - Home</title>{% endblock %}
+
+{% block home_active %}class='active'{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+      
+    <div class="container-bound col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
+      <div class="row ">
+        <label style="color:#34325E; font-size:50px">Student Main Portal</label>
+      </div>
+      <div class="row">
+        <p style="color:#ED7D2B; font-weight: bold; font-size:20px">Ustacky Student Portal registration, join us today for your online courses</p>
+      </div>
+        <div class="row">
+          <a class="btn btn-primary btn-lg" href="{{url_for('student_portal')}}" style="background-color:#34325E;color:#ED7D2B;font-weight:bold;">
+            Get Started
+          </a>
+      </div>
+    </div>
+    <img src="{{url_for('static', filename = 'images/home_img.svg')}}" class="col-md-6 col-sm-5" style="width:450px;height:400px;margin-bottom:50px;">
+  </div>
+{% endblock %}

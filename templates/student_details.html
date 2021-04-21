@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}<title>Portal - Details</title>{% endblock %}
+{% block content %}
+  <div class="container-fluid">  
+    <div class="col-md-12 main-container" style="background-color:white;box-shadow:1px  1px #fff;">
+      <div class="text-center col-sm-5 image-container"  style="background-color: #CC8B5E;border-radius:3px;">
+        <img src="{{url_for('static', filename='uploads/'+student['image'])}}" class="col-sm-12">
+        
+        <div class="col-sm-12" style="padding:3px">
+          <h3 style="color:white;font-weight:bold">{{student['firstname']}} {{student['middlename']}} {{student['surname']}}<br>
+            <span class="label label-info status" id="admission1">  {{student['admission']}}</span>
+          </h3>
+        </div>
+      </div>
+      <div class="col-sm-7 info-container">
+        <legend  class="bg-info">Personal Information</legend>
+        <div class="card col-sm-12">
+          <h4 >Email: {{student['email']}}</h4>
+        </div>
+        <div class="card col-sm-12">
+        <h4>Gender: {{student['gender']}}</h4>
+        </div>
+        <div class="card col-sm-12">
+        <h4>Phone Number: {{student['phone']}}</h4>
+        </div>          
+        <div class="card col-sm-12">
+        <h4>Date Of Birth: {{student['date_of_birth']}}</h4>
+        </div>
+        <div class="card col-sm-12">
+        <h4>Address: {{student['address']}}</h4>
+        </div>      
+      </div>
+      <div class="col-md-12" style="float:left;clear:left; margin-top:10px">
+        <legend  class="bg-info">Other Information</legend>
+        <div class="col-sm-3">
+          <div class="card col-sm-12">
+          <h4>State Of Origin: {{student['state_of_origin']}}</h4>
+          </div>                
+        </div>
+        <div class="col-sm-3">
+          <div class="card col-sm-12">
+          <h4> Local Govt: {{student['local_govt']}}</h4>
+          </div>        
+        </div>          
+      </div>
+      <div class="col-md-12" style="float:left;clear:left; margin-top:10px">
+        <legend  class="bg-info">Academics Related Information</legend>
+        <div class="col-sm-3">
+          <div class="card col-sm-12">
+          <h4>Next Of Kin: {{student['next_of_kin']}}</h4>
+          </div>                
+        </div>
+        <div class="col-sm-3">
+          <div class="card col-sm-12">
+          <h4> Jamb Score: {{student['jamb_score']}}</h4>
+          </div>        
+        </div>
+        <div class="col-sm-6 row">
+          <div class="col-sm-5">
+            <h4 style="float:left;margin-left:5px;">Status: <span class="status" id="admission2">{{student['admission']}}</span></h4>
+          </div>
+          <div class="col-sm-7">
+            <h4 style="display: inline-block;">Change Status: </h4>
+              <select  style="display: inline-block;margin-top: 10px;height: 30px;font-size: 18px;" name="status" id="status"  class="setStatus" onchange="setStatus({{student['id']|tojson }})">
+                <option disabled selected>Change status</option>
+                <option value="undecided">Undecided</option>
+                <option value="admitted">Admitted</option>
+              </select>    
+          </div>
+        </div>
+      </div>          
+    </div>       
+  </div>
+{% endblock %}
